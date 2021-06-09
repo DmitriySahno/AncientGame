@@ -10,15 +10,15 @@ public class World {
         players.add(new Player("Танк", 150, 40, 45, 0, 0));
         players.add(new Player("Маг", 75, 50, 60, 0, 0));
 
-        ArrayList<Enemy> enemies = new ArrayList<>();
-        enemies.add(new Enemy("Ogr", 500, 50, 10));
-        enemies.add(new Enemy("Dragon", 750, 75, 15));
+        ArrayList<Goblin> enemies = new ArrayList<>();
+        enemies.add(new Goblin("Ogr", 500, 50, 10));
+        enemies.add(new Goblin("Dragon", 750, 75, 15));
 
         Iterator<Player> playerIterator = players.iterator();
-        Iterator<Enemy> enemyIterator = enemies.iterator();
+        Iterator<Goblin> enemyIterator = enemies.iterator();
 
         Player player = playerIterator.next();
-        Enemy enemy = enemyIterator.next();
+        Goblin enemy = enemyIterator.next();
 
         while (true) {
             player.attack(enemy);
