@@ -1,14 +1,19 @@
+import java.util.Map;
+
 public class Trader {
+
     private final String name;
-    private int potionCount;
-    public Trader(String name, int potionCount){
+    private Map<String, Integer> bag;
+
+    public Trader(String name, Map<String, Integer> bag) {
         this.name = name;
-        this.potionCount = potionCount;
+        this.bag = bag;
     }
 
-    public boolean trade() {
-        if (potionCount>0) {
-            potionCount--;
+    public boolean trade(String productName) {
+        int count = getProductCount(productName);
+        if (count > 0) {
+            bag.put(productName, --count);
             return true;
         } else return false;
     }
@@ -17,7 +22,12 @@ public class Trader {
         return name;
     }
 
-    public int getPotionCount() {
-        return potionCount;
+    public int getProductCount(String productName) {
+        return bag.get(productName);
     }
+
+    public Map<String, Integer> getProducts() {
+        return bag;
+    }
+
 }
