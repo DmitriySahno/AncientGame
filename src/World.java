@@ -119,6 +119,7 @@ public class World {
                     Поздравляем, Вы победили монстра!""");
             System.out.println("Ваше здоровье:" + player.getHealth());
 
+
         }
         return true;
     }
