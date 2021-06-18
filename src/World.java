@@ -118,7 +118,6 @@ public class World {
             System.out.println(location+": "+"""
                     Поздравляем, Вы победили монстра!""");
             System.out.println("Ваше здоровье:" + player.getHealth());
-
         }
         return true;
     }
