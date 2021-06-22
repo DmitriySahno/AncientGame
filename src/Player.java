@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Player extends AbstractCharacter {
 
 
@@ -9,7 +6,7 @@ public class Player extends AbstractCharacter {
     }
 
     public boolean buyOne(Trader trader, String product) {
-        if (trader.trade(product)) {
+        if (trader.sell(product)) {
             this.replenishHealth(20);
             return true;
         } else return false;
@@ -20,4 +17,22 @@ public class Player extends AbstractCharacter {
         return this.getName() + "(hp: " + this.getHealth() + "; pow:" + this.getPower() + "; coin: " + this.getCoins() + "; lvl: " +this.getLevel()+" ("+ this.getExperience() + ")"+ ")";
     }
 
+    @Override
+    public boolean attack(AbstractCharacter p) {
+        super.attack(p);
+        if (!p.isDie()&&this.isDie()) {
+            System.out.println("----------------------------------------");
+            System.out.println("""
+                    К сожалению, Вы проиграли.
+                    Не расстраивайтесь!
+                    Повезет в следующий раз!""");
+            return false;
+        } else if (!this.isDie()&&p.isDie()) {
+            System.out.println("----------------------------------------");
+            System.out.println("""
+                    Поздравляем, Вы победили монстра!""");
+            System.out.println("Ваше здоровье:" + this.getHealth());
+        }
+        return true;
+    }
 }
