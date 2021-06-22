@@ -53,14 +53,14 @@ public abstract class AbstractCharacter {
         this.dexterity = dexterity;
     }
 
-    public void attack(AbstractCharacter p) {
+    public boolean attack(AbstractCharacter p) {
 
         Random random = new Random();
         int calcPower = this.power;
         double r = Math.random();
         if (r < (1 - (float) dexterity / maxDexterity)) { //hitting possibility
             System.err.println(this + " промахнулся по " + p);
-            return;
+            return false;
         }
 
         if (random.nextInt(3) + 1 == 3) //power x2
@@ -76,6 +76,7 @@ public abstract class AbstractCharacter {
             System.out.println(p + " был убит " + this);
             p.isDie = true;
         }
+        return true;
     }
 
     public void die() {
