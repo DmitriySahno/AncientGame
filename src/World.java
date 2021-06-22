@@ -42,7 +42,6 @@ public class World {
         String answer = "0";
         while (!answer.equals("-"))
             answer = runAction(scanner);
-
     }
 
     private static String runAction(Scanner scanner) {
