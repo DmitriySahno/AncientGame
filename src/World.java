@@ -16,6 +16,7 @@ public class World {
         public String toString() {
             return description;
         }
+
     }
 
     private static Location location = Location.CITY;
